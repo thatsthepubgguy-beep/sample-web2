@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark" data-lang="en">
 
+<!--
+  ============================================================
+  AK DIGITALS — Restaurant Website
+  ============================================================
+  QUICK REFERENCE FOR EDITORS:
+
+  • Colors:    Edit CSS variables in :root[data-theme="dark/light"]
+  • Content:   Search for "EDIT HERE" markers below
+  • Images:    Replace Pexels URLs in <img src="...">
+  • Prices:    Find "PRICE:" markers in the menu cards
+  • Hours:     Find "HOURS:" markers in location & contact sections
+  • Contact:   Find "CONTACT:" markers in footer & contact cards
+  • Phone:     Find "PHONE:" markers
+  • Address:   Find "ADDRESS:" markers
+
+  BILINGUAL SYSTEM:
+  Every text block has two <span> versions:
+    <span class="en">English text</span>
+    <span class="am">Amharic text</span>
+  CSS hides one based on the active language.
+
+  SECTION ORDER:
+  1. Navigation  2. Hero  3. Marquee  4. Menu  5. Story+Stats
+  6. Gallery  7. Location+Map  8. Contact  9. Footer  10. JS
+  ============================================================
+-->
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -406,21 +433,25 @@
       display: none !important;
     }
   </style>
+<base target="_blank">
 </head>
 
 <body class="overflow-x-hidden">
 
-  <!-- NAV -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 1: NAVIGATION
+       EDIT HERE: Logo text, nav links, CTA button
+       ════════════════════════════════════════════════════════ -->
   <header class="fixed top-0 left-0 right-0 z-50 nav-blur border-b" style="border-color:var(--nav-border)">
     <nav class="max-w-7xl mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between gap-4">
 
-      <!-- Logo -->
+      <!-- EDIT HERE: Logo text -->
       <a href="#" class="flex items-center gap-2 shrink-0">
         <span class="display text-2xl md:text-3xl" style="color:var(--cream)">AK DIGITALS</span>
         <span class="fire-dot"></span>
       </a>
 
-      <!-- Desktop nav links -->
+      <!-- EDIT HERE: Navigation links -->
       <ul class="hidden md:flex items-center gap-7 text-sm" style="color:var(--text-dim)">
         <li><a href="#menu" class="link-underline en">Menu</a><a href="#menu" class="link-underline am">ምናሌ</a></li>
         <li><a href="#story" class="link-underline en">Story</a><a href="#story" class="link-underline am">ታሪካችን</a>
@@ -433,7 +464,7 @@
             class="link-underline am">ያነጋግሩን</a></li>
       </ul>
 
-      <!-- Controls -->
+      <!-- Controls: Lang toggle | Theme toggle | CTA | Hamburger -->
       <div class="flex items-center gap-2 shrink-0">
         <!-- Lang toggle -->
         <div class="toggle-pill" id="lang-toggle" title="Switch language">
@@ -475,7 +506,7 @@
       </div>
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Mobile menu (auto-hidden on desktop) -->
     <div id="mobile-menu" class="md:hidden hidden border-t px-6 py-6 space-y-4"
       style="background:var(--bg);border-color:var(--nav-border)">
       <a href="#menu" class="block en" style="color:var(--cream)">Menu</a>
@@ -493,7 +524,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 2: HERO
+       EDIT HERE: Headline, tagline, images, CTA buttons
+       ════════════════════════════════════════════════════════ -->
   <section class="relative pt-32 md:pt-44 pb-20 md:pb-32 overflow-hidden grain">
     <div class="absolute inset-0 glow opacity-60 pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
@@ -532,7 +566,7 @@
         </div>
       </div>
 
-      <!-- Hero image stack -->
+      <!-- EDIT HERE: Hero images (3 photos) -->
       <div class="relative mt-16 md:mt-24 reveal">
         <div class="grid grid-cols-12 gap-3 md:gap-5">
           <div class="col-span-4 aspect-[3/4] overflow-hidden rounded-2xl">
@@ -551,7 +585,7 @@
               alt="" class="w-full h-full object-cover hero-img-mask" />
           </div>
         </div>
-        <!-- Rotating sticker -->
+        <!-- Rotating sticker badge -->
         <div class="sticker hidden md:grid" style="top:-30px;right:40px;">
           <svg viewBox="0 0 200 200" class="w-full h-full">
             <defs>
@@ -569,7 +603,10 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 3: MARQUEE (scrolling text banner)
+       EDIT HERE: Scrolling tagline text
+       ════════════════════════════════════════════════════════ -->
   <div class="marquee py-7 border-y" style="background:var(--bg-3);border-color:var(--border)">
     <div class="marquee-track display text-4xl md:text-6xl en" style="color:var(--cream)">
       <span>FRESHLY PREPARED</span><span class="italic-serif normal-case" style="color:var(--primary)">and</span>
@@ -590,7 +627,17 @@
     </div>
   </div>
 
-  <!-- SIGNATURE MENU -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 4: SIGNATURE MENU
+       EDIT HERE: Dishes, prices, descriptions, images
+       Each card follows the same pattern:
+         - Image URL
+         - Badge label
+         - PRICE: (edit the number)
+         - Dish name
+         - Description
+         - Rating stars
+       ════════════════════════════════════════════════════════ -->
   <section id="menu" class="py-24 md:py-36 relative">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20 reveal">
@@ -614,9 +661,10 @@
         </p>
       </div>
 
+      <!-- ═══════ MENU GRID ═══════ -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Card 1 -->
+        <!-- ═══ CARD 1: AK Special ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -627,6 +675,7 @@
               <span class="fire-dot"></span>
               <span class="en">Bestseller</span><span class="am">ምርጥ ሽያጭ</span>
             </div>
+            <!-- PRICE: 280 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">280 ብር</div>
           </div>
           <div class="p-6">
@@ -652,7 +701,7 @@
           </div>
         </article>
 
-        <!-- Card 2 -->
+        <!-- ═══ CARD 2: Adama Grill ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -663,6 +712,7 @@
               <span class="fire-dot"></span>
               <span class="en">Double portion</span><span class="am">ድርብ ክፍል</span>
             </div>
+            <!-- PRICE: 350 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">350 ብር</div>
           </div>
           <div class="p-6">
@@ -688,7 +738,7 @@
           </div>
         </article>
 
-        <!-- Card 3 -->
+        <!-- ═══ CARD 3: Royal Tibs ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -699,6 +749,7 @@
               <span class="fire-dot"></span>
               <span class="en">Premium</span><span class="am">ምርጥ</span>
             </div>
+            <!-- PRICE: 420 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">420 ብር</div>
           </div>
           <div class="p-6">
@@ -724,7 +775,7 @@
           </div>
         </article>
 
-        <!-- Card 4 -->
+        <!-- ═══ CARD 4: Berbere Fire ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -735,6 +786,7 @@
               <span class="fire-dot"></span>
               <span class="en">Extra spicy</span><span class="am">እጅግ ቅቤ</span>
             </div>
+            <!-- PRICE: 300 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">300 ብር</div>
           </div>
           <div class="p-6">
@@ -760,7 +812,7 @@
           </div>
         </article>
 
-        <!-- Card 5 -->
+        <!-- ═══ CARD 5: The Big Feast ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -771,6 +823,7 @@
               <span class="fire-dot"></span>
               <span class="en">Family size</span><span class="am">ቤተሰብ መጠን</span>
             </div>
+            <!-- PRICE: 550 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">550 ብር</div>
           </div>
           <div class="p-6">
@@ -796,7 +849,7 @@
           </div>
         </article>
 
-        <!-- Card 6 -->
+        <!-- ═══ CARD 6: Fasting Platter ═══ -->
         <article class="menu-card reveal group">
           <div class="relative overflow-hidden aspect-[4/3]" style="background:var(--bg-card2)">
             <img
@@ -807,6 +860,7 @@
               <span class="fire-dot"></span>
               <span class="en">Vegetarian</span><span class="am">የፆም ምግብ</span>
             </div>
+            <!-- PRICE: 220 birr -->
             <div class="absolute top-4 right-4 num-price text-3xl">220 ብር</div>
           </div>
           <div class="p-6">
@@ -836,7 +890,10 @@
     </div>
   </section>
 
-  <!-- STORY / NUMBERS -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 5: STORY / STATS
+       EDIT HERE: Stats numbers, founding story text
+       ════════════════════════════════════════════════════════ -->
   <section id="story" class="py-24 md:py-32 border-y grain relative overflow-hidden"
     style="background:var(--bg-3);border-color:var(--border)">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
@@ -896,7 +953,10 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 6: GALLERY
+       EDIT HERE: Replace image URLs to change photos
+       ════════════════════════════════════════════════════════ -->
   <section id="gallery" class="py-24 md:py-36 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
@@ -958,7 +1018,11 @@
     </div>
   </section>
 
-  <!-- LOCATION -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 7: LOCATION & MAP
+       EDIT HERE: Address, hours, phone, map coordinates
+       Map coordinates: edit the bbox and marker values in the iframe src
+       ════════════════════════════════════════════════════════ -->
   <section id="location" class="py-24 md:py-36 border-y relative overflow-hidden"
     style="background:var(--bg-3);border-color:var(--border)">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
@@ -981,7 +1045,7 @@
       </div>
 
       <div class="grid md:grid-cols-12 gap-5 reveal">
-        <!-- Map -->
+        <!-- MAP (edit coordinates in src URL) -->
         <div class="md:col-span-8 relative rounded-3xl overflow-hidden border aspect-[16/10]"
           style="background:var(--bg-card2);border-color:var(--border)">
           <iframe title="AK Digitals location – Adama" class="w-full h-full"
@@ -1002,13 +1066,14 @@
           </a>
         </div>
 
-        <!-- Info column -->
+        <!-- INFO COLUMN -->
         <div class="md:col-span-4 flex flex-col gap-5">
           <div class="p-7 rounded-3xl border" style="background:var(--bg-card2);border-color:var(--border)">
             <div class="italic-serif text-xl" style="color:var(--primary)">
               <span class="en">flagship</span><span class="am">ዋናዋ ቅርንጫፍ</span>
             </div>
             <div class="display text-3xl mt-1" style="color:var(--cream)">AK Digitals</div>
+            <!-- ADDRESS -->
             <p class="mt-4 text-sm leading-relaxed" style="color:var(--text-dim)">
               <span class="en">Adama (Nazreth)<br />Oromia Region<br />Ethiopia</span>
               <span class="am">አዳማ (ናዝሬት)<br />ኦሮሚያ ክልል<br />ኢትዮጵያ</span>
@@ -1018,6 +1083,7 @@
               <span class="text-xs uppercase tracking-widest" style="color:var(--text-mute)">
                 <span class="en">Phone</span><span class="am">ስልክ</span>
               </span>
+              <!-- PHONE -->
               <span style="color:var(--cream)">+251 22 110 0000</span>
             </div>
           </div>
@@ -1055,7 +1121,10 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 8: CONTACT
+       EDIT HERE: Contact info, hours, location cards
+       ════════════════════════════════════════════════════════ -->
   <section id="contact" class="py-24 md:py-36 relative overflow-hidden grain">
     <div class="absolute inset-0 glow opacity-50 pointer-events-none"></div>
     <div class="max-w-6xl mx-auto px-6 md:px-10 relative">
@@ -1077,6 +1146,7 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-5 reveal">
+        <!-- CONTACT: Location card -->
         <div class="p-8 rounded-3xl border" style="background:var(--bg-card);border-color:var(--border)">
           <div class="display text-2xl" style="color:var(--cream)">
             <span class="en">Adama</span><span class="am">አዳማ</span>
@@ -1092,6 +1162,7 @@
             <span class="en">City Center Location</span><span class="am">ከተማ ማዕከል</span>
           </p>
         </div>
+        <!-- CONTACT: Hours card -->
         <div class="p-8 rounded-3xl border" style="background:var(--bg-card);border-color:var(--border)">
           <div class="display text-2xl" style="color:var(--cream)">
             <span class="en">Hours</span><span class="am">ሰዓቶች</span>
@@ -1112,6 +1183,7 @@
             <span class="am">ኩሽና 30 ደቂቃ ቀደም ይዘጋል</span>
           </p>
         </div>
+        <!-- CONTACT: Contact card -->
         <div class="p-8 rounded-3xl border" style="background:var(--bg-card);border-color:var(--border)">
           <div class="display text-2xl" style="color:var(--cream)">
             <span class="en">Contact</span><span class="am">ያነጋግሩን</span>
@@ -1134,7 +1206,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 9: FOOTER
+       EDIT HERE: Copyright year, social links, legal links
+       ════════════════════════════════════════════════════════ -->
   <footer class="border-t pt-20 pb-10 relative" style="background:var(--bg-3);border-color:var(--border)">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
       <div class="display leading-none text-center" style="font-size:clamp(3rem,16vw,18rem);color:var(--cream)">
@@ -1173,6 +1248,7 @@
             <li class="am">እሑድ · 6–4</li>
           </ul>
         </div>
+        <!-- CONTACT: Social links -->
         <div>
           <h4 class="text-xs uppercase tracking-widest mb-4" style="color:var(--text-mute)">
             <span class="en">Follow</span><span class="am">ተከተሉን</span>
@@ -1198,7 +1274,9 @@
     </div>
   </footer>
 
-  <!-- Scroll hint -->
+  <!-- ════════════════════════════════════════════════════════
+       SCROLL HINT (desktop only)
+       ════════════════════════════════════════════════════════ -->
   <div class="scroll-hint hidden md:block">
     <div class="flex flex-col items-center gap-2 text-xs uppercase tracking-widest" style="color:var(--text-mute)">
       <span class="en">Scroll</span><span class="am">ሸብልሉ</span>
@@ -1206,6 +1284,11 @@
     </div>
   </div>
 
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 10: JAVASCRIPT
+       Handles: mobile menu, scroll reveal, smooth scroll,
+       language toggle, theme toggle
+       ════════════════════════════════════════════════════════ -->
   <script>
     /* ── MOBILE MENU ─── */
     const toggle = document.getElementById('menu-toggle');
